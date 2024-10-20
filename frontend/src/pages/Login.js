@@ -13,10 +13,13 @@ function Login() {
 
   const handleSubmit= async(e)=>{
     e.preventDefault();
+    
     try{
       const res=await axios.post("http://localhost:8000/login",{
         username,password
       })
+      console.log(res);
+      
       if(res.status==201){
         console.log("user login sucessfully", res.data)
       setErrorMessage(''); 
@@ -31,7 +34,7 @@ function Login() {
       }
 
     }catch(err){
-      console.log("errror in login frontend ",err.res?.data);
+      console.log("errror in login frontend ",err);
 
       setErrorMessage(err.res?.data?.error || 'Incorrect credentials'); 
 
@@ -44,7 +47,7 @@ function Login() {
       <div className="login-box">
         <h2 className="heading">Login</h2> 
         <form onSubmit={handleSubmit}>
-          <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)} placeholder="Email" className="input" /> 
+          <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)} placeholder="username" className="input" /> 
           <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" className="input" /> 
           {errorMessage && (
               <p className="error-message">{errorMessage}</p>
