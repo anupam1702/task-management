@@ -17,7 +17,7 @@ router.post("/",(req,res)=>{
     Users.findOne({username:username}).then((user)=>{
         // console.log(user)
         if(!user) return res.status(404).json({error:"User not found"});
-        console.log(typeof(password),typeof(user.password))
+        // console.log(typeof(password),typeof(user.password))
         if(String(password)!==user.password) return  res.status(401).json({error:"Invalid credentials"});
 
         return res.status(201).json({message:"Login succesfully"});

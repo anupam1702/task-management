@@ -1,16 +1,23 @@
 
-* {
+  
+  /* body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body, html {
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #000000; 
     color: #ffffff;
-  }
+  } */
+
+  /* register.css */
+.register-page {
+  height: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
   
   .register-container {
     display: flex;
@@ -74,5 +81,9 @@
   
   .anchor:hover {
     text-decoration: underline;
+  }
+  .error-message {
+    color: red;
+    margin-top: 10px;
   }
   

@@ -8,13 +8,13 @@ router.post("/",(req,res)=>{
 
     User.findOne({email:email}).then((userExist)=>{
         if(userExist){
-            res.status(422).json({error:"email already exists"})
+            return res.status(422).json({error:"email already exists"})
         }
         const user=new User({email,username,password});
         user.save().then(()=>{
-            res.status(201).json({message:"user register successfully"})
+            return res.status(201).json({message:"user register successfully"})
         }).catch((err)=>{
-            res.status(500).json({error:`failed to register ${err}`})
+           return  res.status(500).json({error:`failed to register ${err}`})
         })
     }).catch((err)=>console.log(`error in findOne ${err}`)
     )

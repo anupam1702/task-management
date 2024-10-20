@@ -1,16 +1,21 @@
-/* Reset default margin and padding */
-* {
+
+
+
+   
+   .login-page * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body, html {
+}
+
+.login-page {
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #000000; /* Black background */
     color: #ffffff; /* White text */
-  }
+}
+
+
   
   .login-container {
     display: flex;
@@ -74,5 +79,11 @@
   
   .anchor:hover {
     text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin: 10px 0;
   }
   
