@@ -2,6 +2,7 @@ const express=require("express");
 const mongoose=require("mongoose");
 const Users=require("../models/RegisterSchema")
 const bcrypt=require("bcrypt");
+const jwt=require("jsonwebtoken")
 
 
 
@@ -29,8 +30,13 @@ router.post("/", async (req,res)=>{
         if (!isMatch) {
             return res.status(401).json({ error: "Invalid credentials" });
         }
+        const jwtToken=jwt.sign({username:user.username,_id:user._id},"anpam",{expiresIn:'1h'})
 
-        return res.status(201).json({ message: "Login successfully" });
+        return res.status(201).json({ message: "Login successfully" ,
+            success:true,
+            jwtToken,
+            username:user.username
+        });
 
         
     } catch (err) {

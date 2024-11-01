@@ -5,9 +5,10 @@ const resgisterRoute=require("./router/register")
 const dotenv=require("dotenv")
 const mongoose=require("mongoose");
 const cors=require("cors")
+const tryRoute=require("./router/Try")
 
 
-const app=express();
+const app=express();    
 
 app.use(cors());
 
@@ -32,6 +33,7 @@ mongoose.connect(process.env.DATABASE).then(()=>{
 app.use("/",homeRoute)
 app.use("/login",loginRoute)
 app.use("/register",resgisterRoute)
+app.use("/try",tryRoute)
 
 
 app.listen(PORT,()=>{

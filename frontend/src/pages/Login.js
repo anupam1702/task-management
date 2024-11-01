@@ -18,12 +18,19 @@ function Login() {
       const res=await axios.post("http://localhost:8000/login",{
         username,password
       })
-      console.log(res);
+      console.log("res wala ", res);
+
+      
+
       
       if(res.status==201){
-        console.log("user login sucessfully", res.data)
+        // console.log("user login sucessfully", res.data)
+
+        localStorage.setItem("token",res.data.jwtToken)
+        localStorage.setItem("username",res.data.username)
+
       setErrorMessage(''); 
-      navigate('/')
+      navigate('/home')
      
       }
       else {

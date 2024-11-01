@@ -20,7 +20,7 @@ const handleRegister= async(e)=>{
     if(response.status==201){
       console.log("user register sucessfully", response.data)
       setErrorMessage(''); 
-      navigate('/login')
+      navigate('/')
     }
     else {
       console.log("failed to register");
@@ -51,7 +51,7 @@ const handleRegister= async(e)=>{
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p className="link">
-          <Link to="/login" className="anchor">Already have account login here</Link>
+          <Link to="/" className="anchor">Already have account login here</Link>
         </p>
       </div>
     </div>
